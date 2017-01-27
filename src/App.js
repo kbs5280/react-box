@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './header';
+import Intro from './intro';
 import AllIdeas from './all-ideas';
+import NewIdea from './new-idea';
 
 //////////////////////////////////
 
@@ -36,10 +39,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React Box</h2>
+          <Header />
         </div>
         <div className="App-intro">
-          An idea collection app built with React.
+          <Intro />
+        </div>
+        <div>
+          <NewIdea />
         </div>
         <div className="ideas">
           <AllIdeas ideas={this.state.ideas} />
