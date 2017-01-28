@@ -1,27 +1,23 @@
-import _ from 'lodash';
 import React from 'react';
 import Idea from './idea';
 
 class AllIdeas extends React.Component {
   renderIdeas() {
-    return _.map(this.props.ideas, (idea, index) => <Idea key={index
-    } {...idea} />);
+
+    console.log(this.props.ideas);
+
+    return this.props.ideas.map((idea, index) =>
+      <Idea key={index}
+            title={idea.title}
+            body={idea.body}/>);
+            // {...idea}/>);
   }
 
   render() {
     return(
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Headery
-            </th>
-          </tr>  
-        </thead>
-          <tbody>
-            {this.renderIdeas()}
-          </tbody>
-      </table>
+    <div>
+      {this.renderIdeas()}
+    </div>
     )
   }
 }

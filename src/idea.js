@@ -3,10 +3,12 @@ import React from 'react';
 class Idea extends React.Component {
   render() {
     return (
-      <tr>
-        <td>{this.props.title}</td>
-        <td>{this.props.body}</td>
-      </tr>
+      <div>
+        <div>{this.props.title}</div>
+        <button>Edit</button>
+        <button>Delete</button>
+        <div>{this.props.body}</div>
+      </div>
     );
   }
 }
