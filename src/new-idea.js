@@ -3,18 +3,18 @@ import Axios from 'axios';
 
 class NewIdea extends React.Component {
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
+
     let title = this.refs.title.value;
     let body = this.refs.body.value;
-    // remove console.log
-    // console.log(title, body);
-    // add axios call to API
-    Axios.post('https://idea-box-ks.herokuapp.com/ideas', {idea: {title: title, body: body }})
-         .then(function(response) {
-          //  console.log('Response: ' + response)
+
+    Axios.post('https://idea-box-ks.herokuapp.com/api/v1/ideas', {title: title, body: body })
+         .then((response) => {
+           this.props.handleSubmit(response);
+           this.refs.title.value = '';
+           this.refs.body.value = '';
          });
-    // pass handleSubmit function in App.js, pass as props
-    // call handleSubmit and pass the new skill to set state
   }
 
   render() {
