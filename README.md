@@ -9,7 +9,6 @@ React-Ideas is a [WIP] single-page React application. The application uses Axios
 * Webpack
 * Axios
 * CRUD
-* NPM
 
 -----
 
