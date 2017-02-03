@@ -2,6 +2,17 @@
 
 This WIP single-page React application. The application uses Axios to send requests to a JSON API, in production, built using Ruby on Rails and PostgreSQL database. All saved ideas are rendered when the page loads. A user can create, update, or destroy an idea.
 
+* React
+* JavaScript
+* Jest
+* Lodash
+* Webpack 
+* Axios
+* CRUD
+* NPM
+
+-----
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
