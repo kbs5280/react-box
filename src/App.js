@@ -35,7 +35,8 @@ class App extends Component {
           <NewIdea handleSubmit={this.handleSubmit.bind(this)} />
         </div>
         <div className="ideas">
-          <AllIdeas ideas={this.state.ideas} />
+          <AllIdeas ideas={this.state.ideas}
+                    updateIdea={this.updateIdea.bind(this)} />
         </div>
       </div>
     );
@@ -45,7 +46,13 @@ class App extends Component {
     this.state.ideas.unshift(response.data);
     this.setState({ ideas: this.state.ideas });
   }
-}
 
+  updateIdea(idea) {
+    console.log("This is idea in App.js")
+    console.log(idea);
+    // send Axios request
+    // set new state
+  }
+}
 
 export default App;
