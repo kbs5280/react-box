@@ -6,9 +6,16 @@ class AllIdeas extends React.Component {
 
     return this.props.ideas.map((idea, index) =>
       <Idea key={index}
+            id={idea.id}
             title={idea.title}
-            body={idea.body}/>);
+            body={idea.body}
+            updateIdea={this.updateIdea}/>);
             // {...idea}/>);
+  }
+
+  updateIdea(idea) {
+    console.log(this.props)
+    // this.props.updateIdea(idea);
   }
 
   render() {
@@ -18,6 +25,7 @@ class AllIdeas extends React.Component {
     </div>
     )
   }
+
 }
 
 export default AllIdeas;
