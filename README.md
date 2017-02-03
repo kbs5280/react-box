@@ -1,12 +1,12 @@
 # React-Ideas
 
-This WIP single-page React application. The application uses Axios to send requests to a JSON API, in production, built using Ruby on Rails and PostgreSQL database. All saved ideas are rendered when the page loads. A user can create, update, or destroy an idea.
+React-Ideas is a [WIP] single-page React application. The application uses Axios to send requests to a JSON API, in production, built using Ruby on Rails and PostgreSQL database. All saved ideas are rendered when the page loads. A user can create, update, or destroy an idea.
 
 * React
 * JavaScript
 * Jest
 * Lodash
-* Webpack 
+* Webpack
 * Axios
 * CRUD
 * NPM
