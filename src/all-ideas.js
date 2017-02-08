@@ -9,12 +9,17 @@ class AllIdeas extends React.Component {
             id={idea.id}
             title={idea.title}
             body={idea.body}
-            updateIdea={this.updateIdea.bind(this)}/>);
+            updateIdea={this.updateIdea.bind(this)}
+            deleteIdea={this.deleteIdea.bind(this)}/>);
             // {...idea}/>);
   }
 
   updateIdea(idea) {
     this.props.updateIdea(idea);
+  }
+
+  deleteIdea(id) {
+    this.props.deleteIdea(id);
   }
 
   render() {

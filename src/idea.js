@@ -39,7 +39,7 @@ class Idea extends React.Component {
     return (
       <div>
         {this.renderOptions()}
-        <button>Delete</button>
+        <button onClick={this.deleteIdea.bind(this)}>Delete</button>
       </div>
     );
   }
@@ -50,13 +50,19 @@ class Idea extends React.Component {
 
   updateIdea() {
     this.setState({ editable: !this.state.editable })
-    let id = this.props.id
-    let title = this.refs.title.value
-    let body = this.refs.body.value
+    const id = this.props.id;
+    const title = this.refs.title.value;
+    const body = this.refs.body.value;
 
-    let idea = {id: id, title: title, body: body}
+    const idea = {id: id, title: title, body: body}
 
     this.props.updateIdea(idea);
+  }
+
+  deleteIdea() {
+    const id = this.props.id;
+
+    this.props.deleteIdea(id);
   }
 }
 
