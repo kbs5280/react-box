@@ -9,13 +9,12 @@ class AllIdeas extends React.Component {
             id={idea.id}
             title={idea.title}
             body={idea.body}
-            updateIdea={this.updateIdea}/>);
+            updateIdea={this.updateIdea.bind(this)}/>);
             // {...idea}/>);
   }
 
   updateIdea(idea) {
-    console.log(this.props)
-    // this.props.updateIdea(idea);
+    this.props.updateIdea(idea);
   }
 
   render() {
