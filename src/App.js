@@ -36,7 +36,8 @@ class App extends Component {
         </div>
         <div className="ideas">
           <AllIdeas ideas={this.state.ideas}
-                    updateIdea={this.updateIdea.bind(this)} />
+                    updateIdea={this.updateIdea.bind(this)}
+                    deleteIdea={this.deleteIdea.bind(this)}/>
         </div>
       </div>
     );
@@ -49,18 +50,35 @@ class App extends Component {
 
   updateIdea(idea) {
     Axios.put(`https://idea-box-ks.herokuapp.com/api/v1/ideas/${idea.id}`,
-                     { id: idea.id, title: idea.title, body: idea.body })
+             { id: idea.id, title: idea.title, body: idea.body })
          .then((response) => {
            this.handleUpdate(response.data);
          });
   }
 
   handleUpdate(newIdea) {
-    let ideas = this.state.ideas.filter((idea) => {
+    const ideas = this.state.ideas.filter((idea) => {
       return idea.id !== newIdea.id;
     })
     ideas.unshift(newIdea);
     this.setState( {ideas: ideas });
+  }
+
+  deleteIdea(id) {
+    Axios.delete(`https://idea-box-ks.herokuapp.com/api/v1/ideas/${id}`, { id: id })
+         .then((response) => {
+           this.handleDelete(id);
+         })
+         .catch((error) => {
+           alert(error);
+         });
+  }
+
+  handleDelete(id) {
+    const ideas = this.state.ideas.filter((idea) => {
+      return idea.id !== id;
+    });
+    this.setState({ ideas: ideas })
   }
 }
 
