@@ -48,10 +48,19 @@ class App extends Component {
   }
 
   updateIdea(idea) {
-    console.log("This is idea in App.js")
-    console.log(idea);
-    // send Axios request
-    // set new state
+    Axios.put(`https://idea-box-ks.herokuapp.com/api/v1/ideas/${idea.id}`,
+                     { id: idea.id, title: idea.title, body: idea.body })
+         .then((response) => {
+           this.handleUpdate(response.data);
+         });
+  }
+
+  handleUpdate(newIdea) {
+    let ideas = this.state.ideas.filter((idea) => {
+      return idea.id !== newIdea.id;
+    })
+    ideas.unshift(newIdea);
+    this.setState( {ideas: ideas });
   }
 }
 
