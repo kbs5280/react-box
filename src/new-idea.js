@@ -9,8 +9,9 @@ class NewIdea extends React.Component {
     let title = this.refs.title.value;
     let body = this.refs.body.value;
 
-    Axios.post('https://idea-box-ks.herokuapp.com/api/v1/ideas', {title: title, body: body })
+    Axios.post('http://localhost:3001', {idea: {title: title, body: body }})
          .then((response) => {
+           console.log(response);
            this.props.handleSubmit(response);
            this.refs.title.value = '';
            this.refs.body.value = '';

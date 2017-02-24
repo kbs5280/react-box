@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    Axios.get('https://idea-box-ks.herokuapp.com/api/v1/ideas')
+    Axios.get('http://localhost:3001')
          .then((response) => {
            this.setState({ ideas: response.data });
     });
@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   handleSubmit(response) {
+    // fix this here 
     this.state.ideas.unshift(response.data);
     this.setState({ ideas: this.state.ideas });
   }
